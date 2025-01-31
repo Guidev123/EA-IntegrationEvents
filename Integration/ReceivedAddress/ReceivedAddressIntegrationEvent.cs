@@ -2,8 +2,9 @@
 {
     public class ReceivedAddressIntegrationEvent : IntegrationEvent
     {
-        public ReceivedAddressIntegrationEvent(string street, string number, string additionalInfo, string neighborhood, string zipCode, string city, string state)
+        public ReceivedAddressIntegrationEvent(Guid customerId, string street, string number, string additionalInfo, string neighborhood, string zipCode, string city, string state)
         {
+            CustomerId = customerId;
             Street = street;
             Number = number;
             AdditionalInfo = additionalInfo;
@@ -12,7 +13,7 @@
             City = city;
             State = state;
         }
-
+        public Guid CustomerId { get; private set; }
         public string Street { get; private set; }
         public string Number { get; private set; }
         public string AdditionalInfo { get; private set; }
